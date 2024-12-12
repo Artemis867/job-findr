@@ -24,7 +24,7 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 
-import { setAuthToken, signup } from "@/common/user.common";
+import { setAuthCredentials, signup } from "@/common/user.common";
 import { useNavigate } from "react-router-dom";
 
 
@@ -78,8 +78,9 @@ export default function SignupForm () {
 
     try {
       const result = await signup(inputData);
+      
       if(result.data.success) {
-        setAuthToken(result.data.token);
+        setAuthCredentials(result.data.username, result.data.token);
         navigate('/home');
       }
 
