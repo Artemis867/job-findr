@@ -1,13 +1,13 @@
 import axios from "axios";
 const API_URL = 'http://localhost:4000';
-const USER_ROUTE =  `${API_URL}/user`;
-
+export const USER_ROUTE =  `${API_URL}/user`;
 
 export const signup = async (data) => {
   return await axios.post(`${USER_ROUTE}/signup`, data);
 }
 
-export const setAuthToken = (token) => {
+export const setAuthCredentials = (username, token) => {
+  localStorage.setItem('user', username);
   localStorage.setItem('token', token);
   return true;
 }
