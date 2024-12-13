@@ -3,6 +3,22 @@ import LandingBgImg from '../assets/working-sample-bg.jpg';
 import SignupForm from "@/components/SignupForm";
 
 
+import { Button } from "@/components/ui/button"
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+
+
+import LoginForm from "@/components/LoginForm";
+
 const landingBgStyle = {
   backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5)) , url(${LandingBgImg})`,
   backgroundSize: `cover`,
@@ -12,6 +28,26 @@ const landingBgStyle = {
 }
 
 export default function Landing() {
+
+  const dialogMarkup = (
+    <Dialog>
+      <DialogTrigger asChild>
+        <a href="#" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Login</a>
+      </DialogTrigger>
+      <DialogContent className="sm:max-w-[425px]">
+        <DialogHeader>
+          <DialogTitle className="text-xl text-center">Sign in JobFindr</DialogTitle>
+          <DialogDescription>
+            Signup to access job hunting features of JobFindr. No account yet? Sign up here.
+          </DialogDescription>
+        </DialogHeader>
+          <LoginForm/>
+        {/* <DialogFooter>
+          <Button className="w-[100%]" type="submit">Login</Button>
+        </DialogFooter> */}
+      </DialogContent>
+    </Dialog>
+  );
 
   const introMarkup = (
     <div className="w-[520px] m-10">
@@ -40,7 +76,7 @@ export default function Landing() {
               <a href="#" className="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500 dark:bg-blue-600 md:dark:bg-transparent" aria-current="page">Home</a>
             </li>
             <li>
-              <a href="#" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Login</a>
+              {dialogMarkup}
             </li>
             <li>
               <a href="#" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">About</a>

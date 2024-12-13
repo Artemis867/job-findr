@@ -159,7 +159,9 @@ export default function SignupForm () {
                 </FormItem>
               )}
             />
-              <Button type="submit">Signup</Button>
+            <div className="space-y-2">
+              <Button className="w-[100%] mt-4" type="submit">Signup</Button>
+            </div>
           </form>
       </CardContent>
     </Form>
@@ -169,7 +171,7 @@ export default function SignupForm () {
     <>  
       <Card className="w-[450px] m-5 mt-10">
         <CardHeader>
-          <CardTitle>Signup here</CardTitle>
+          <CardTitle className="text-2xl">Signup here</CardTitle>
           <CardDescription>Create your JobFindr account now and start hunting your dream job.</CardDescription>
         </CardHeader>
         {formMarkup}

@@ -11,7 +11,6 @@ export default function Home() {
   useEffect(() => {
     let isMounted = true;
     const user = localStorage.getItem('user') ?? '';
-
     const userData = {user};
 
     const fetchUserCredential = async (userData) => {

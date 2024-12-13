@@ -6,6 +6,10 @@ export const signup = async (data) => {
   return await axios.post(`${USER_ROUTE}/signup`, data);
 }
 
+export const signin = async (data) => {
+  return await axios.post(`${USER_ROUTE}/signin`, data);
+}
+
 export const setAuthCredentials = (username, token) => {
   localStorage.setItem('user', username);
   localStorage.setItem('token', token);
