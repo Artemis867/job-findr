@@ -2,6 +2,9 @@ import React, {useEffect, useCallback, useState} from "react";
 import { USER_ROUTE } from "@/common/user.common";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import Navigation from "@/components/Navigation";
+import ProfileWidget from "@/widget/ProfileWidget";
+import JobList from "@/components/JobList";
 
 export default function Home() {
   const navigate = useNavigate();
@@ -38,15 +41,17 @@ export default function Home() {
     }
   }, []);
 
-
-  useEffect(() => {
-    if(userData) {
-      console.log('[TRACK] userData');
-      console.log(userData);
-    }
-  }, [userData]);
-
   return (
-    <>Home component</>
+    <>
+      <Navigation/>
+      <div className="w-[100%] flex justify-center flex-wrap">
+        <div className="w-[320px] p-1">
+          <ProfileWidget/>
+        </div>
+        <div className="w-[700px] border-2 border-black">
+          <JobList/>
+        </div>
+      </div>
+    </>
   );
 }

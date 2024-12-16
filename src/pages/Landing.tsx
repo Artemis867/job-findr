@@ -1,4 +1,4 @@
-import React, {useEffect, useCallback, useState} from "react";
+import React, {useEffect, useCallback, useState, useLayoutEffect} from "react";
 import LandingBgImg from '../assets/working-sample-bg.jpg';
 import SignupForm from "@/components/SignupForm";
 
@@ -18,6 +18,8 @@ import { Label } from "@/components/ui/label"
 
 
 import LoginForm from "@/components/LoginForm";
+import { checkHasToken } from "@/common/user.common";
+import { useNavigate } from "react-router-dom";
 
 const landingBgStyle = {
   backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5)) , url(${LandingBgImg})`,
@@ -28,6 +30,15 @@ const landingBgStyle = {
 }
 
 export default function Landing() {
+  const navigate = useNavigate();
+  
+  useEffect(() => {
+    const signedIn = checkHasToken();
+    if(signedIn) {
+      navigate('/home', {replace: true});
+    }
+
+  }, [navigate]);
 
   const dialogMarkup = (
     <Dialog>
